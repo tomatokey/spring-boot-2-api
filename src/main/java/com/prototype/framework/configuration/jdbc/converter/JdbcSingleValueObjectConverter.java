@@ -36,10 +36,10 @@ public class JdbcSingleValueObjectConverter implements GenericConverter {
         if (targetType.getType().getSuperclass() == SingleValueObject.class) {
             final Type targetGenericType = ((ParameterizedType) targetType.getType().getGenericSuperclass()).getActualTypeArguments()[0];
             if (targetGenericType == String.class && source instanceof String o) {
-                return targetType.getType().getDeclaredConstructor(String.class).newInstance(o);
+                return targetType.getType().getConstructor(String.class).newInstance(o);
             }
             if (targetGenericType == Integer.class && source instanceof Number o) {
-                return targetType.getType().getDeclaredConstructor(Integer.class).newInstance(o.intValue());
+                return targetType.getType().getConstructor(Integer.class).newInstance(o.intValue());
             }
         }
         // DB更新用

@@ -36,10 +36,10 @@ public class MvcSingleValueObjectConverter implements GenericConverter {
         if (source instanceof String o && targetType.getType().getSuperclass() == SingleValueObject.class) {
             final Type genericType = ((ParameterizedType) targetType.getType().getGenericSuperclass()).getActualTypeArguments()[0];
             if (genericType == String.class) {
-                return targetType.getType().getDeclaredConstructor(String.class).newInstance(o);
+                return targetType.getType().getConstructor(String.class).newInstance(o);
             }
             if (genericType == Integer.class) {
-                return targetType.getType().getDeclaredConstructor(Integer.class).newInstance(Integer.parseInt(o));
+                return targetType.getType().getConstructor(Integer.class).newInstance(Integer.parseInt(o));
             }
         }
 

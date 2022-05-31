@@ -28,14 +28,6 @@ public abstract class SingleValueObject<T extends Comparable<T>> {
     @JsonValue
     protected final T value;
 
-    /**
-     * コンストラクタ
-     *
-     * {@link JsonCreator}を付与することによって、例えば
-     * {@code {"user_id": 1}}のJsonが
-     * {@link UserId}オブジェクトにデシリアライズされます
-     * {@link JsonCreator}をValueObjectを継承したクラスに付与する必要はありません
-     */
     @JsonCreator
     protected SingleValueObject(T value) {
         this.value = value;

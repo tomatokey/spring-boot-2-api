@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.prototype.architecture.layer_03_domain.user.UserId;
 import com.prototype.framework.utils.ObjectUtils;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.validation.constraints.NotNull;
 
@@ -14,6 +15,7 @@ import javax.validation.constraints.NotNull;
  * @param <T> value
  */
 @EqualsAndHashCode
+@ToString
 public abstract class SingleValueObject<T extends Comparable<T>> {
 
     /**
